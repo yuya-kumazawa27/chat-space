@@ -1,0 +1,29 @@
+.side-bar
+
+  .side-header
+    .side-header__box
+      %p.side-header__box__user-name test_user
+      %ul.side-header__box__menu
+        %li
+          = link_to "#", class: "group__btn--fa-edit" do
+            %i.far.fa-edit
+        %li
+          = link_to "#", class: "edit__btn--fa-cog" do
+            %i.fas.fa-cog
+
+  .side-groups
+    = link_to "#" , class: "group" do
+      %p.group__group-name
+        グループ名
+      %p.group__group-message
+        まだメッセージはありません
+    = link_to "#" , class: "group" do
+      %p.group__group-name
+        グループ名
+      %p.group__group-message
+        まだメッセージはありません
+    = link_to "#" , class: "group" do
+      %p.group__group-name
+        グループ名
+      %p.group__group-message
+        まだメッセージはありません
