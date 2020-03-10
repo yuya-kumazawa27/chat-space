@@ -1,4 +1,5 @@
 gem 'font-awesome-sass'
+gem 'pry-rails'
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
