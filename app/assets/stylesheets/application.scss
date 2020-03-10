@@ -1,8 +1,7 @@
 @import "reset";
+@import "config/flashcolor";
 @import "modules/messages";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-<<<<<<< HEAD
-@import "modules/user"
-=======
->>>>>>> bc02b771c9e9058ae4106390bed66107a5a6b37f
+@import "modules/user";
+@import "modules/flash";
