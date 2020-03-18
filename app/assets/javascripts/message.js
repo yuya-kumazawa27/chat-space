@@ -70,7 +70,6 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      console.log(data)
       var html = buildHTML(data);
       $('.messages').append(html); 
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight
@@ -85,7 +84,6 @@ $(function(){
 var reloadMessages = function() {
   //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
   var last_message_id = $('.message:last').data("message-id");
-  console.log(last_message_id)
   $.ajax({
     //ルーティングで設定した通りのURLを指定
     url: "api/messages",
