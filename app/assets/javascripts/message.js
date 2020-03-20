@@ -5,7 +5,7 @@ $(function(){
       //data-idが反映されるようにしている
       var html =
        `<div class="message" data-message-id=  ${message.id} >
-          <div class="upper-message_info">
+          <div class="upper-message__info">
             <div class="upper-message__talker">
               ${message.user_name}
             </div>
@@ -24,7 +24,7 @@ $(function(){
       var html =
       `<div class="message" data-message-id= ${message.id} >
           <div class="upper-message__txit">
-            <div class="upper-message__comtent">
+            <div class="upper-message__talker">
               ${message.user_name}
             </div>
             <div class="upper-message__date">
@@ -42,10 +42,10 @@ $(function(){
         var html = `<div class="message" data-message-id=  ${message.id} >
           <div class="upper-message__info">
             <div class="upper-message__talker">
-              message.user_name 
+              ${message.user_name} 
             </div>
             <div class="upper-message__info__date">
-              message.created_at 
+              ${message.created_at} 
             </div>
           </div>
           <div class="lower-message">
@@ -58,9 +58,10 @@ $(function(){
   
   
   $('#new_message').on('submit', function(e){
-    e.preventDefault()
+    e.preventDefault();
+
     var formData = new FormData(this);
-    var url = $(this).attr('action');
+    var url = $(this).attr('action')
     $.ajax({
       url: url,
       type: 'POST',
@@ -71,20 +72,20 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.messages').append(html); 
-      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight
-    });
-      $('.form__submit').prop('disabled', false);
-      $('form')[0].reset();
+      $('.messages').append(html);
+      $('form')[0].reset(); 
+      $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
     })
-    .fail(function() {
-      alert("メッセージ送信に失敗しました");
+    .fail(function(){
+      alert("メッセージを入力してください");
+    })
+    .always(function(){
+      $('.form__submit').prop('disabled', false);
   });
 })
 var reloadMessages = function() {
   //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
   var last_message_id = $('.message:last').data("message-id");
-  console.log(last_message_id);
   $.ajax({
     //ルーティングで設定した通りのURLを指定
     url: "api/messages",
@@ -113,6 +114,6 @@ var reloadMessages = function() {
 };
 //$(function(){});の閉じタグの直上(処理の最後)に以下のように追記
 if (document.location.href.match(/\/groups\/\d+\/messages/)) {
-  setInterval(reloadMessages, 7000);
+  // setInterval(reloadMessages, 7000);
 }
 });

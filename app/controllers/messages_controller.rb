@@ -14,12 +14,12 @@ class MessagesController < ApplicationController
         format.json
         format.html {redirect_to group_messages_path(@group)}
       end
-   else
-     @messages = @group.messages.includes(:user)
-     flash.now[:alert] = 'メッセージを入力してください。'
-     render :index
+    else
+      @messages = @group.messages.includes(:user)
+      # flash.now[:alert] = 'メッセージを入力してください。'
+      
+    end
   end
-end
 
 private
   def message_params
