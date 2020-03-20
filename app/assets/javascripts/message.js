@@ -4,7 +4,7 @@ $(function(){
     if (message.content && message.image) {
       //data-idが反映されるようにしている
       var html =
-       `<div class="message" data-message-id=  message.id >
+       `<div class="message" data-message-id=  ${message.id} >
           <div class="upper-message_info">
             <div class="upper-message__talker">
               ${message.user_name}
@@ -22,7 +22,7 @@ $(function(){
         </div>`
     } else if (message.content) {
       var html =
-      `<div class="message" data-message-id= message.id >
+      `<div class="message" data-message-id= ${message.id} >
           <div class="upper-message__txit">
             <div class="upper-message__comtent">
               ${message.user_name}
@@ -39,7 +39,7 @@ $(function(){
         </div>`
       } else if (message.image) {
         //同様に、data-idが反映されるようにしている
-        var html = `<div class="message" data-message-id=  message.id >
+        var html = `<div class="message" data-message-id=  ${message.id} >
           <div class="upper-message__info">
             <div class="upper-message__talker">
               message.user_name 
@@ -84,6 +84,7 @@ $(function(){
 var reloadMessages = function() {
   //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
   var last_message_id = $('.message:last').data("message-id");
+  console.log(last_message_id);
   $.ajax({
     //ルーティングで設定した通りのURLを指定
     url: "api/messages",
