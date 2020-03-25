@@ -5,11 +5,11 @@ $(function(){
       //data-idが反映されるようにしている
       var html =
        `<div class="message" data-message-id=  ${message.id} >
-          <div class="upper-message__info">
-            <div class="upper-message__talker">
+          <div class="message__info">
+            <div class="message__talker">
               ${message.user_name}
             </div>
-            <div class="upper-message__info__date">
+            <div class="message__info__date">
               ${message.created_at}
             </div>
           </div>
@@ -23,8 +23,8 @@ $(function(){
     } else if (message.content) {
       var html =
       `<div class="message" data-message-id= ${message.id} >
-          <div class="upper-message__txit">
-            <div class="upper-message__talker">
+          <div class="message__txit">
+            <div class="message__talker">
               ${message.user_name}
             </div>
             <div class="upper-message__date">
@@ -40,11 +40,11 @@ $(function(){
       } else if (message.image) {
         //同様に、data-idが反映されるようにしている
         var html = `<div class="message" data-message-id=  ${message.id} >
-          <div class="upper-message__info">
-            <div class="upper-message__talker">
+          <div class="message__info">
+            <div class="message__talker">
               ${message.user_name} 
             </div>
-            <div class="upper-message__info__date">
+            <div class="message__info__date">
               ${message.created_at} 
             </div>
           </div>
